@@ -1,0 +1,67 @@
+<div class="row">
+  <form (ngSubmit)="register()" class="col s12">
+    <div class="row">
+      <div class="input-field col m6 s12">
+        <i class="material-icons prefix">email</i>
+        <input id="email" type="text" [(ngModel)]="email" autocomplete="off" name="email" class="validate">
+        <label for="email">Email</label>
+      </div>
+      <div class="input-field col m6 s12">
+        <i class="material-icons prefix">account_circle</i>
+        <input id="name" type="text" [(ngModel)]="name" autocomplete="off"  name="name" class="validate">
+        <label for="name">Name</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">phone</i>
+        <label for="phone">Phone Number: </label>
+        <input type="tel" class="form-control" name="phone" autocomplete="off"  [(ngModel)]="phone" id="phone" required="required" />
+      </div>
+
+      <div class="input-field col s4 m1">
+        <i class="material-icons prefix">today</i>
+      </div>
+        <div class="input-field col s8 m5">
+          <material-datepicker  placeholder="wedding date"  autocomplete="off" [(date)]="weddingDate"></material-datepicker>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6" id="hearAboutUs">
+        <i class="material-icons prefix">live_help</i>
+        <label for="howDidYouHear">How Did You Hear About Us?</label>
+        <select id="howDidYouHear"  name="howDidYouHear" [(ngModel)]="howDidYouHear" title="How did you hear about us?">
+          <option [(selected)]="VAR" value="Facebook/Twitter/Social Media">Facebook/Twitter/Social Media</option>
+          <option value="Friend of Family">Friend or Family</option>
+          <option value="Newspaper">Newspaper</option>
+          <option value="Wedding Vendor">Wedding Vendor</option>
+          <option value="Radio">Radio</option>˙
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="col s12 m6" id="other">
+        <input type="text" class="form-control" placeholder="Other:" name="howDidYouHear"/>
+      </div>
+
+      <div class="input-field col m6 s12">
+        <i class="material-icons prefix">perm_identity</i>
+        <label for="numberOfGuest">Number of Guest:  <strong>{{numberOfGuest}}</strong></label>
+        <br/>
+        <p class="range-field">
+          <input type="number" id="numberOfGuest" autocomplete="off"   [(ngModel)]="numberOfGuest"  name="numberOfGuest" required value="0" min="0" max="10" />
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s6 offset-s3 center-align">
+        <button class="btn waves-effect waves-light " type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+        <h3>{{message}}</h3>
+      </div>
+    </div>
+  </form>
+</div>

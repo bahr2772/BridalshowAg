@@ -1,0 +1,31 @@
+<div class="row" >
+  <form (ngSubmit)="checkin()" >
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">email</i>
+        <input id="icon_prefix" type="text" [(ngModel)]="email" autocomplete="off" name="email" required class="validate">
+        <label for="icon_prefix">Email</label>
+      </div>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">perm_identity</i>
+        <label for="numberOfGuest">Number of Guest: {{numberOfGuest}} <strong></strong></label>
+        <br/>
+        <p class="range-field">
+          <input type="number" id="numberOfGuest" [(ngModel)]="numberOfGuest" autocomplete="off"  name="numberOfGuest" required value="0" min="0" max="10" />
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6 offset-s3 center-align">
+        <button type="submit" class="btn btn-success">Check In
+          <i class="material-icons right">send</i>
+        </button>
+
+      <div>
+        <h3>{{message}}</h3>
+      </div>
+      </div>
+    </div>
+  </form>
+</div>
+
