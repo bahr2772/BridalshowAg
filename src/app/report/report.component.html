@@ -1,0 +1,84 @@
+
+<div class="row">
+  <div class="input-field col s12">
+    <button class="waves-effect waves-light btn" onclick="$('#reportList').toggle();$('#reportDetails').toggle();">Show/Hide Report List</button>
+    <button class="waves-effect waves-light btn" onclick="$('#reportList').toggle();$('#reportDetails').toggle();">Show/Hide Report Details</button>
+
+
+    <table id="reportList" class="responsive-table striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th data-field="weddingDate">Wedding Date</th>
+        <th data-field="name">Name</th>
+        <th data-field="price">Phone</th>
+        <th data-field="hearAbout">Heard About the Show</th>
+        <th data-field="guest"># of Guest Brought</th>
+        <th data-field="preReg">Pre-Registered</th>
+      </tr>
+      </thead>
+
+      <tr *ngFor="let bride of reportList; let myIndex = index">
+        <td>{{myIndex+1}}</td>
+        <td>{{bride.weddingDate | date: 'MM/dd/yyyy'}} </td>
+        <td>{{bride.name}}</td>
+        <td>{{bride.phoneNumber}}</td>
+        <td>{{bride.howDidYouHear}}</td>
+        <td>{{bride.numberOfGuest}}</td>
+        <td>{{bride.preRegistered}}</td>
+    </table>
+
+
+    <div id="reportDetails">
+      <h2>Report Details</h2>
+      <table class="responsive-table striped"  *ngIf="reportList">
+        <thead>
+        <th>People . . .</th>
+        </thead>
+        <tr>
+          <td>Number of Walkins:</td>
+          <td>{{numWalkIn}}</td>
+        </tr>
+        <tr>
+          <td>Number of Pre-Register:</td>
+          <td>{{numPreReg}}</td>
+        </tr>
+        <tr>
+          <td>Total:</td>
+          <td>{{reportList?.length}}</td>
+        </tr>
+      </table>
+      <br/><br/>
+      <table class="responsive-table striped">
+        <thead>
+        <th> Heard From . . .</th>
+        </thead>
+        <tr>
+          <td>Number from Fb:</td>
+          <td>{{numHeardFromFb}}</td>
+        </tr>
+        <tr>
+          <td>Number from Friends/Family:</td>
+          <td>{{numHeardFromFF}}</td>
+        </tr>
+        <tr>
+          <td>Number from Newspaper:</td>
+          <td>{{numHeardFromNewpaper}}</td>
+        </tr>
+        <tr>
+          <td>Number from Radio:</td>
+          <td>{{numHeardFromRadio}}</td>
+        </tr>
+        <tr>
+          <td>Number from Other</td>
+          <td>{{numHeardFromOther}}</td>
+        </tr>
+      </table>
+
+      <br/><br/>
+    </div>
+
+  </div>
+</div>
+
+
